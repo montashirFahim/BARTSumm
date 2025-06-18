@@ -7,7 +7,7 @@ This repository contains the implementation of **BARTSumm**, a transformer-based
 > *A. S. M. Montashir Fahim, Department of Computer Science & Engineering, Rajshahi University of Engineering & Technology (RUET), Bangladesh*
 
 The project leverages the **BART (Bidirectional and Auto-Regressive Transformer)** model, fine-tuned on the `ccdv/pubmed-summarization` dataset, to generate concise, coherent, and factually accurate summaries of complex scientific articles.  
-It addresses challenges like handling technical jargon, preserving key findings, improving fluency, and achieving competitive performance:
+It addresses challenges like handling technical jargon, preserving key findings, and improving fluency, achieving competitive performance:
 
 - **ROUGE-1 F1:** 0.4092  
 - **ROUGE-2 F1:** 0.1760  
@@ -25,11 +25,27 @@ The repository also includes resources for multilingual summarization, with a fo
 - **Open-Source Resources:** Pre-trained models, fine-tuning scripts, and datasets included.
 
 ## Repository Contents
-- `BARTsumm.ipynb`: Jupyter notebook with data preprocessing, fine-tuning, training, and evaluation.
-- `datasets/`: Scripts for `ccdv/pubmed-summarization` and Bengali dataset preprocessing.
-- `models/`: Pre-trained BART model checkpoints and fine-tuned weights.
-- `scripts/`: Utility scripts for tokenization, training, and inference.
-- `results/`: Evaluation metrics and sample summaries.
+- `bartsumm.ipynb`: Jupyter notebook with data preprocessing, fine-tuning, training, and evaluation.
+- `datasets/`:
+  - Scripts for `ccdv/pubmed-summarization` and Bengali dataset preprocessing
+  - `Dataset.txt`: Dataset description
+  - `4.pdf`, `5.pdf`, `6.pdf`: Dataset distribution analysis
+  - `length_distributions.pdf`: Length distribution visualizations
+- `models/`:
+  - Pre-trained BART checkpoints and fine-tuned weights
+  - `8.pdf`, `9.pdf`: Model architecture documentation
+  - `fulltransformer.png`: Full Transformer architecture diagram
+  - `positional_encoding_heatmap.pdf`, `positional_encoding_sinusoids.pdf`: Visualizations of positional encoding
+  - `wrokflow.pdf`: Model workflow diagram
+- `scripts/`: Utility scripts for tokenization, training, and inference
+- `results/`:
+  - `evaluation_metrics.csv`: Detailed evaluation metrics
+  - `hypotheses_references.csv`: Generated summaries and references
+  - `summary_report.pdf`: Summary of findings
+  - `train_loss_curve.pdf`: Training loss curve
+  - `validation_loss_curve.pdf`: Validation loss curve
+- `evaluation/`:  
+  - Contains additional evaluation resources
 
 ## Requirements
 Ensure you have the following dependencies:
@@ -63,17 +79,18 @@ cd BARTSumm
 ### Prepare the Dataset
 
 * Download `ccdv/pubmed-summarization` via Hugging Face datasets library.
-* For the Bengali dataset, see `datasets/` directory for preprocessing scripts.
+* For Bengali dataset, see `datasets/` directory for preprocessing scripts and supporting files like `Dataset.txt`, `4.pdf`, `5.pdf`, `6.pdf`, `length_distributions.pdf`.
 
 ### Run the Notebook
 
-1. Open `BARTsumm.ipynb` in Jupyter Notebook or JupyterLab.
+1. Open `bartsumm.ipynb` in Jupyter Notebook or JupyterLab.
 2. Follow sections to:
 
-   * Load and preprocess the dataset.
-   * Fine-tune the BART model.
-   * Evaluate with ROUGE, BLEU, METEOR, and BERTScore.
-   * Generate summaries for new articles.
+   * Load and preprocess dataset.
+   * Fine-tune BART model.
+   * Evaluate with ROUGE, BLEU, METEOR, BERTScore.
+   * Visualize training (`train_loss_curve.pdf`, `validation_loss_curve.pdf`).
+   * Review evaluation reports (`summary_report.pdf`, `evaluation_metrics.csv`, `hypotheses_references.csv`).
 
 ### Example Command for Inference
 
@@ -101,6 +118,8 @@ The fine-tuned BART model achieved:
 * **BLEU-4:** 0.1208
 * **METEOR:** 0.2902
 * **BERTScore F1:** 0.8594
+
+*See `results/evaluation_metrics.csv` and `results/summary_report.pdf` for detailed metrics.*
 
 *Strong semantic alignment noted in biomedical texts; further optimization may help with long or highly technical documents.*
 
@@ -131,5 +150,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ---
 
-For questions or contributions, please open an issue or contact the author at `montashirfahim25@gmail.com`.
-
+For questions or contributions, please open an issue or contact the author at **[montashirfahim25@gmail.com](mailto:montashirfahim25@gmail.com)**.
